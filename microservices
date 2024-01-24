@@ -1,0 +1,60 @@
+What are microservices
+----------------------
+
+Before starting about microservices i will explain about monolith architecture the reason is earlier  every one in realtime used monolith architecture
+
+but due to some limitations in this architecture people started moving to microservices so first you need to understand how monolith architecture works
+
+and what are the limitations in it then you can understand how microservices can overcome those limitations and help us in real-time
+
+
+Let's Assume we have monolith application Employee Service Portal it contains features like payroll , employee referral , Absence management 
+ and Internal JobPortal usually in real-time there will be 100's of components included in one application but for simplification here i given example
+for few services only
+
+
+limitations in monoilith architecture
+
+Code complexity -> Due to lot of packages related to different services
+
+Testing complexity -> For small change we need to test entire application
+
+Tight coupling -> If app is down there is no service is accessible as we have all the code in one application
+
+Scalability ->  On 1st of every month there will be high load on Payroll portal as every employee want to check their payslip
+	         so we need to scale up entire application as our app is monlith so we are unnecessarily scaling up all other components also which is
+		   one of the main limitations in monolith architecture
+
+Now lets understand how microservices will overcome these limitations
+
+
+Please like and subscribe to my video if you like my content so it will be encoraging for me to make more videos
+
+
+What are microservices
+
+Microservices are nothing but smaller independent deployable services 
+
+Earlier we discussed about Employee Service Portal right which contains services like  payroll , employee referral , Absence management 
+and Internal JobPortal combined in one application but when we implement them through microservices architecture then all these services are broken
+into independent microservice
+
+Now lets understand how it will resolve drawbacks which we faced in monolith architecture
+
+
+Code complexity-> Now we have broken code base into small microservices right so code base got divided which makes code very easier to understand as it dont have
+many num of services at one place
+
+Testing complexity  -> we need to test service which we made changes which reduces lot of effort
+
+Tight coupling -> Even if one service is down other services will be available to the customers so just need to concentrate on one service which id down
+			there is impact but it is minimal
+
+Scalability -> We can scale up service which we need there is no need to scale up all services which are not needed
+
+I hope you guys understood what are microservices lets meet in our next lecture Thank you
+
+
+
+
+
