@@ -18,11 +18,11 @@ public class Test {
 
 }
 
-lambda expressions without braces when passing arguments
+lambda expressions without braces when passing argument
 
 
-If you observed below code i have removed () while passing arguments , so we can understand these () are not mandatory while passing arguments 
-
+If you observed below code i have removed () while passing argument , so we can understand these () are not mandatory while passing argument  but remember it is applicable for only single argument
+ if you try to pass multiple arguments without braces java will raise compile-time error
 interface Light {
 
 	public void switchOn(boolean bool);
