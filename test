@@ -1,0 +1,20 @@
+lambda expressions with functional interfaces example:
+
+Implementing Runnable interface using LambdaExpressions:
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		Runnable r = () -> {
+
+			System.out.println("Thread started");
+		};
+
+		Thread t = new Thread(r);
+
+		t.start();
+	}
+
+}
+
