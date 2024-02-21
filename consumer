@@ -1,0 +1,61 @@
+In  this tutorial i want to discuss about some predefined functional interfaces Consumer,Producer and Predicate interfaces in java8
+
+Consumer interface: It is introduced in java8 , Consumer Interface accepts a single argument and does not return any result
+                    when we have requirement like we need to pass an argument and some operation to be performed on it and we dont expect any result from it
+
+@FunctionalInterface
+public interface Consumer<T> {
+
+    /**
+     * Performs this operation on the given argument.
+     *
+     * @param t the input argument
+     */
+    void accept(T t);
+     */
+    default Consumer<T> andThen(Consumer<? super T> after) {
+        Objects.requireNonNull(after);
+        return (T t) -> { accept(t); after.accept(t); };
+    }
+}
+
+//add an image to blog
+
+
+Predicate Interface:
+Predicate inerface is one of the functional interfaces introduced in java8 
+It allows programmers to test a specific condition imposed on values which will return a boolean result
+
+@FunctionalInterface
+public interface Predicate<T> {
+
+    /**
+     * Evaluates this predicate on the given argument.
+     *
+     * @param t the input argument
+     * @return {@code true} if the input argument matches the predicate,
+     * otherwise {@code false}
+     */
+    boolean test(T t);
+
+//add an image to blog
+
+Supplier Interface:
+Supplier inerface is one of the functional interfaces introduced in java8 
+It is used when we have specific requirement like where we will not pass input to a method but we expect output from it
+
+@FunctionalInterface
+public interface Supplier<T> {
+
+    /**
+     * Gets a result.
+     *
+     * @return a result
+     */
+    T get();
+}
+
+//add an image to blog
+
+
+
