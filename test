@@ -18,3 +18,26 @@ public class Test {
 
 }
 
+lambda expressions without braces when passing arguments
+
+
+If you observed below code i have removed () while passing arguments , so we can understand these () are not mandatory while passing arguments 
+
+interface Light {
+
+	public void switchOn(boolean bool);
+}
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		Light light = l -> System.out.println("is light turned on:" + l);
+
+		light.switchOn(true);
+
+	}
+
+}
+
+
