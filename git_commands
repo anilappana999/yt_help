@@ -1,0 +1,20 @@
+Basic Git Commands
+git clone url -> clone repo
+git pull -> pull latest changes
+git add filename -> add specific file to staging
+git add . -> add all files to staging
+git commit -m "message" -> commit changes with message
+git push -> push changes in local
+git stash -> stash all changes in current branch
+git stash pop -> applies recent stash changes and remove stash from list
+git checkout branchName -> switches to specific branch name
+git log -> shows history of commits
+git log -1 -> shows history of latest  commit(only one commit)
+git checkout commit_id -> checkout to specific commit in history
+git branch -> create branch in local without switching
+git checkout -b feature/new-feature -> create new branch and checkout to it
+git push -u origin <branch_name> -> push local created branch to remote repository
+git branch -> show current branch name with astrik(with green color) and other branch names in red color
+git fetch --prune -> delete branches in local which are deleted in remote repository(some times deleted branches in remote repository will be not updated in local then we can use this command)
+GIT REBASE STEPS
+----------------
