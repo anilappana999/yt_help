@@ -16,5 +16,103 @@ git checkout -b feature/new-feature -> create new branch and checkout to it
 git push -u origin <branch_name> -> push local created branch to remote repository
 git branch -> show current branch name with astrik(with green color) and other branch names in red color
 git fetch --prune -> delete branches in local which are deleted in remote repository(some times deleted branches in remote repository will be not updated in local then we can use this command)
+
+Deleting branch in local and pushing to remote repository
+---------------------------------------------------------
+Step1:
+Delete the Branch Locally
+Switch to a different branch (not the one you want to delete):
+git checkout main
+Step2:
+Delete the local branch:
+git branch -d branch_name
+Step3:
+Push the branch deleted to the remote:
+git push origin --delete branch_name
+-----------------------------------------------------
+
+Create a repository in local and push it to remote repository
+-------------------------------------------------------------
+ Create a New Local Repository
+Create a directory for your project:
+mkdir my-new-repo
+cd my-new-repo
+Initialize a Git repository:
+git init
+Add required files to the repository:
+echo "# My New Repo" >> README.md
+git add .
+git commit -m "Initial commit"
+Create a Remote Repository
+Go to your Git hosting platform (e.g., GitHub, GitLab, or Bitbucket).
+Create a new repository:
+Set the repository name (e.g., my-new-repo).
+Leave it empty (do not initialize with a README or .gitignore if you've already created these locally).
+Link the Local Repository to the Remote
+git remote add origin https://github.com/your-username/my-new-repo.git
+Replace the URL with the one for your remote repository.
+Push your local repository to the remote:
+git branch -M main
+git push -u origin main
+The -M main command renames your default branch to main (if it isn't already).
+The -u flag sets the upstream branch for future git push or git pull commands.
+
+
+Creating branch in local and pushing it to remote repository
+------------------------------------------------------------
+Switch to the base branch (e.g., main or master) from which you want to create the new branch:
+git checkout main
+Create and switch to the new branch:
+git checkout -b branch_name
+(Make Changes (Optional) 
+git add .
+git commit -m "Your commit message here")
+git push -u origin branch_name
+----------------------------------
+
 GIT REBASE STEPS
 ----------------
+we can follow rebase in two ways:
+Scenario1: Let's Assume we have branch develop which created from branch master , i want to commit code changes in develop and want to
+            create PR but some x person made some commits in master branch in same file i was working, so it may create conflicts while cre
+            -ating PR if i dont have those changes in local, so i need to rebase develop branch against master branch and then need to commit
+            code
+Make sure you are on same branch you want to make changes in my case its develop branch
+git stash(stash your changes first)
+git rebase branchname (parent branch which you want to rebase )
+git stash pop
+(after resolving conflicts we can stage , commit and push changes as usual)
+git add .
+git commit -m "dummy-message"
+git push
+
+Scenario2: I have created branch develop from master 10 days back and im not taking rebase while committing new changes and i have made 10 
+           commits and lets assume some one already changes on master branch on same files im working on ,now if i create pr it will create 
+           conflicts so we need to follow some steps to rebase your child branch before creating PR
+
+git pull --rebase
+git checkout feature branch_name(if you are not on child branch)
+git fetch origin
+git rebase origin/master_branch_name
+resolve if conflicts occur and add them to staging
+git add conflicts_resolved_files
+git rebase --continue
+if need to abort rebase in middle execute below command
+git rebase --abort
+git push origin feature_brach_name --force (use it for your own branches not for public branches)
+Caution When Using --force
+Data Loss Risk: Any changes or commits present on the remote branch but missing in your local branch will be lost.
+Impact on Team Members: If others are working on the same branch, their work might be affected, and they could face conflicts or lose their commits.
+Alternative and safer command for above command is:
+git push origin feature_branch_name --force-with-lease
+This ensures you only force push if no one else has pushed new changes to the remote branch since your last pull or fetch.
+If the remote branch has been updated by someone else, the push will fail, preventing accidental overwrites.
+----------------------------------------------------
+Reverting changes in git:
+
+
+
+
+
+
+
