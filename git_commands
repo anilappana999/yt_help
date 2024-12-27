@@ -108,8 +108,32 @@ git push origin feature_branch_name --force-with-lease
 This ensures you only force push if no one else has pushed new changes to the remote branch since your last pull or fetch.
 If the remote branch has been updated by someone else, the push will fail, preventing accidental overwrites.
 ----------------------------------------------------
-Reverting changes in git:
+Reverting changes in git: reverting changes in git can be done in multiple ways
+Undo Unstaged Changes
+---------------------
+To discard single file
+git restore <file>
+To discard multiple files
+git restore .
 
+Undo Staged Changes
+-------------------
+If you've already staged changes but not committed them:
+For staged single file
+git restore --staged <file>
+For all files:
+git restore --staged .
+
+Reverting Commits
+-----------------
+There are different scenarios in reverting commits 
+
+Reverting commit where changes committed in local
+--------------------------------------------------
+lets assume a scenario we made a commit in local now i want to revert those changes
+syntax git revert commit_id
+
+Example: git revert 8364953c0c951e40171938104890e36d290d69ed
 
 
 
