@@ -20,6 +20,9 @@ git push -u origin <branch_name> -> push local created branch to remote reposito
 git branch -> show current branch name with astrik(with green color) and other branch names in red color
 git fetch --prune -> delete branches in local which are deleted in remote repository(some times deleted branches in remote repository will be not updated in local then we can use this command)
 git reset --hard -> remove all uncomitted changes in the repository and resets all changes to last commit
+git reflog -> It reflog is a powerful command in Git that displays the reference log,
+              a history of changes made to the repository's references (such as branches, HEAD, and tags). 
+              It allows you to see a timeline of actions (e.g., commits, rebases, resets, checkouts) that have affected the state of your repository
 Deleting branch in local and pushing to remote repository
 ---------------------------------------------------------
 Step1:
@@ -163,6 +166,44 @@ get commitid by executing command git log
 git revert commit_id
 git push
 Tada.. your changes are reverted
+
+note  we may confront of conflicts while making reverts , we need to resolve them carefully
+-----
+----------------------------------------------------------------------------------------------------------------------------------------
+git cherry-pick
+---------------
+git cherry-pick command is not limited to adding commits from another branch. It is primarily used to apply changes introduced by one or more existing commits from any source (e.g., another branch, a detached HEAD state, or even a stash commit) into the current branch.
+
+Here are key scenarios where git cherry-pick can be used:
+
+Applying commits from another branch:
+This is the most common use case, where you pick specific commits from another branch and apply them to your current branch.
+
+
+git cherry-pick <commit-hash>
+Applying commits from the same branch:
+You can use git cherry-pick to reapply a commit from an earlier part of the current branch to a later point.
+
+Applying commits from a detached HEAD:
+If you're working in a detached HEAD state, you can cherry-pick a commit from this state onto a branch.
+
+Applying commits from a stash:
+If you've stashed changes and created a commit for the stash (e.g., using git stash show -p), you can cherry-pick that stash commit.
+
+Cherry-picking multiple commits:
+You can cherry-pick a range of commits, either sequentially or non-sequentially.
+
+Sequentially:
+git cherry-pick <start-commit>..<end-commit>
+
+Non-sequentially:
+git cherry-pick <commit-hash-1> <commit-hash-2>
+
+
+Important Notes:
+Conflict Resolution: If there are conflicts during cherry-picking, Git will pause the operation and allow you to resolve them before continuing.
+Commit History: Cherry-picking creates new commits with the same changes as the original commits but with different hashes, so the commits are not identical to the originals.
+
 
 
 
