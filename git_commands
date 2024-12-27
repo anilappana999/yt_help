@@ -1,8 +1,11 @@
 Basic Git Commands
+------------------
 git clone url -> clone repo
 git pull -> pull latest changes
 git add filename -> add specific file to staging
 git add . -> add all files to staging
+git restore --staged <file> -> recover specific file from staging
+git restore . -> recover all files from staging
 git commit -m "message" -> commit changes with message
 git push -> push changes in local
 git stash -> stash all changes in current branch
@@ -86,6 +89,8 @@ git add .
 git commit -m "dummy-message"
 git push
 
+note : git pull --rebase --autostash (this command pull remote changes and rebase your code and also stash staged and unstaged files while rebasing code)
+
 Scenario2: I have created branch develop from master 10 days back and im not taking rebase while committing new changes and i have made 10 
            commits and lets assume some one already changes on master branch on same files im working on ,now if i create pr it will create 
            conflicts so we need to follow some steps to rebase your child branch before creating PR
@@ -131,12 +136,33 @@ There are different scenarios in reverting commits
 Reverting commit where changes committed in local
 --------------------------------------------------
 lets assume a scenario we made a commit in local now i want to revert those changes
+
+Reverting Single commit
+-----------------------
 syntax git revert commit_id
 
 Example: git revert 8364953c0c951e40171938104890e36d290d69ed
 
+Reverting range of commits
+--------------------------
+git revert <oldest-commit-id>..<newest-commit-id>
+git revert 314ad1c950dd0d8eab428e234e0b479d4bf19e9e.. 4732a2b820fab75c96d186836ca7d4d3b5db4c69
 
+Revert last two or commits
+--------------------------
 
+git revert HEAD~2..HEAD (revert last 2 commits)
+
+if i want to revert last 4 commits then i need to say HEAD~4..HEAD
+--------------------------------------------------------------------------------------------------------------------------
+In above scenarios we unserstood reverting bakc changes for local changes lets unserstand how to revert pushed changes now
+
+lets assume i made some code changes , committed and pushed them to remote repository
+now i want to revert those changes back
+get commitid by executing command git log
+git revert commit_id
+git push
+Tada.. your changes are reverted
 
 
 
