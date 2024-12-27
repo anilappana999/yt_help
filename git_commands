@@ -19,7 +19,7 @@ git checkout -b feature/new-feature -> create new branch and checkout to it
 git push -u origin <branch_name> -> push local created branch to remote repository
 git branch -> show current branch name with astrik(with green color) and other branch names in red color
 git fetch --prune -> delete branches in local which are deleted in remote repository(some times deleted branches in remote repository will be not updated in local then we can use this command)
-
+git reset --hard -> remove all uncomitted changes in the repository and resets all changes to last commit
 Deleting branch in local and pushing to remote repository
 ---------------------------------------------------------
 Step1:
