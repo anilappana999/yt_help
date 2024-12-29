@@ -204,6 +204,13 @@ Important Notes:
 Conflict Resolution: If there are conflicts during cherry-picking, Git will pause the operation and allow you to resolve them before continuing.
 Commit History: Cherry-picking creates new commits with the same changes as the original commits but with different hashes, so the commits are not identical to the originals.
 
+--------------------------------------------------------------------
+
+To reset a specific file in your current branch (e.g., feature branch) to the state of that file in another branch (e.g., master branch)
+git checkout master -- <file-path>
+
+
+
 
 
 
